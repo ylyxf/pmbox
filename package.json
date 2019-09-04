@@ -5,13 +5,13 @@
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "shineout": "^1.4.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "rescripts start",
+    "build": "rescripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,5 +27,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@rescripts/cli": "0.0.11",
+    "react-scripts": "^3.1.1"
   }
 }
