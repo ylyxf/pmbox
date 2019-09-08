@@ -1,4 +1,4 @@
-var process = [{
+const ProcessRelation = [{
     process: 0,
     group: 0,
     knowledgeArea: 0
@@ -187,3 +187,5 @@ var process = [{
     group: 3,
     knowledgeArea: 9
 }];
+
+export default ProcessRelation;
