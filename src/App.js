@@ -3,12 +3,27 @@ import { processGroups, knowledgeAreas, processes } from './data/Entity_zh_CN';
 import ProcessRelation from './data/Relationship';
 import { withRouter } from 'react-router';
 import _ from 'lodash';
+import { Table } from 'shineout'
 import './App.css';
 
 function App() {
+
+  //先求出，合计需要多少行
+  let rowNumber = 0;
+  for (let i = 0; i < processGroups.length; i++) {
+    let currentRowNumber = _.filter(processes, { 'group': i });
+    rowNumber = currentRowNumber > rowNumber ? currentRowNumber : rowNumber;
+  };
+  const rows = new Array(rowNumber);
+  for (let r = 0; r < rowNumber; r++) {
+
+  }
+
+
+
   return (
     <div>
-      <table>
+      <Table bordered striped keygen="id">
         <thead>
           <tr>
             <th>&nbsp;</th>
@@ -26,6 +41,7 @@ function App() {
         </thead>
         <tbody>
           {
+            //循环10大知识领域
             knowledgeAreas.map((value, indexOfKnowledgeAreas) => {
               return (
                 <tr key={indexOfKnowledgeAreas}>
@@ -36,7 +52,7 @@ function App() {
                     processGroups.map((value, indexOfProcessGroups) => {
                       let currentProcesses = _.filter(ProcessRelation, { 'group': indexOfProcessGroups, 'knowledgeArea': indexOfKnowledgeAreas });
                       return (
-                        <td key={indexOfProcessGroups+indexOfProcessGroups}>
+                        <td key={indexOfProcessGroups + indexOfProcessGroups}>
                           {currentProcesses.map((value, index) => {
                             return (
                               <div key={index}>
@@ -53,7 +69,7 @@ function App() {
             })
           }
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 }
